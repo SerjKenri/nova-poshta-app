@@ -1,23 +1,22 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+// pages
+import Layout from "./page/Layout/Layout";
+import Parcel from "./page/Parcel/Parcel";
+import Department from "./page/Department/Department";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Nova poshta APP</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Nova poshta APP
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Parcel />} />
+          <Route path="departament" element={<Department />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
-}
+};
 
 export default App;
