@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-import { HiOutlineX } from "react-icons/hi";
-
 const Sidebar = ({ setClose }) => {
   const sidebarRef = useRef(null);
 
@@ -23,14 +21,11 @@ const Sidebar = ({ setClose }) => {
       <Container ref={sidebarRef}>
         <ContentWrapper>
           <TitleWrapper>
-            <h2>Історія</h2>
-            <CloseBtn onClick={setClose}>
-              <HiOutlineX />
-            </CloseBtn>
+            <Title>Історія</Title>
           </TitleWrapper>
           <HistoryList>
-            <li>0000000</li>
-            <li>0000000</li>
+            <Item>0000000</Item>
+            <Item>0000000</Item>
           </HistoryList>
         </ContentWrapper>
       </Container>
@@ -40,13 +35,14 @@ const Sidebar = ({ setClose }) => {
 
 const Container = styled.div(({ theme }) => ({
   position: "fixed",
+  zIndex: "99",
   right: "0",
   top: "0",
   width: "300px",
   height: "100%",
-  background: "#FFFFFF",
-  borderLeft: "1px solid #000000",
-  boxShadow: "-10px 0 10px rgba(0, 0, 0, 0.5)",
+  backgroundColor: theme.color.backgroundColor,
+  borderLeft: theme.color.siderBorder,
+  boxShadow: theme.color.siderShadow,
 }));
 
 const ContentWrapper = styled.div(({ theme }) => ({
@@ -56,15 +52,15 @@ const ContentWrapper = styled.div(({ theme }) => ({
 const TitleWrapper = styled.div(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
-  borderBottom: "1px solid #000000",
+  borderBottom: theme.color.siderTitleWrapperShadow,
 }));
 
-const CloseBtn = styled.button(({ theme }) => ({
-  position: "absolute",
-  border: "none",
-  backgroundColor: "#FFFFFF",
-  left: "10px",
-  top: "10px",
+const Title = styled.h2(({ theme }) => ({
+  color: theme.color.mainTextColor,
+}));
+
+const Item = styled.li(({ theme }) => ({
+  color: theme.color.mainTextColor,
 }));
 
 const HistoryList = styled.ul(({ theme }) => ({

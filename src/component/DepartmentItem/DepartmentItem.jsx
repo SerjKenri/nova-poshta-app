@@ -17,9 +17,9 @@ const DepartmentItem = ({ id, city, description, time }) => {
 };
 
 const Item = styled.li(({ theme }) => ({
-  borderRadius: "8px",
-  boxShadow:
-    "0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)",
+  borderRadius: "1px",
+  borderStyle: "solid",
+  boxShadow: theme.color.departmentItemShadow,
 }));
 
 const Title = styled.h1(({ theme }) => ({
@@ -27,13 +27,15 @@ const Title = styled.h1(({ theme }) => ({
   fontWeight: "800",
   fontSize: "20px",
   justifyContent: "center",
-  borderBottom: "1px solid #000000",
+  borderBottom: theme.color.departmentItemTitleBorder,
   marginBottom: "4px",
+  color: theme.color.mainTextColor,
 }));
 
 const Text = styled.p(({ theme }) => ({
   fontWeight: "800",
   fontSize: "14px",
+  color: theme.color.mainTextColor,
 }));
 
 const Description = styled.span(({ theme }) => ({

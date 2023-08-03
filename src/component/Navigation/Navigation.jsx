@@ -4,6 +4,7 @@ import styled from "styled-components";
 import logo from "../../assets/novaPoshtaLogo.png";
 import Sidebar from "../Sidebar/Sidebar";
 import { HiArchive } from "react-icons/hi";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const screen = [
   { name: "Home", link: "/" },
@@ -27,11 +28,14 @@ const Navigation = () => {
           </LinkNav>
         ))}
       </MenuWrapper>
-      <div>
+      <RightBtnWrapper>
+        <ThemeToggler />
         <HistoryButton onClick={toggleSideBar}>
-          <HiArchive style={{ width: "30px", height: "30px" }} />
+          <HiArchive
+            style={{ width: "30px", height: "30px", fill: "#ff0000" }}
+          />
         </HistoryButton>
-      </div>
+      </RightBtnWrapper>
       {isSideOpen && <Sidebar setClose={toggleSideBar} />}
     </Container>
   );
@@ -42,10 +46,9 @@ const Container = styled.div(({ theme }) => ({
   alignItems: "center",
   padding: "16px 16px 16px 16px",
   borderBottom: "2px",
-  borderBottomStyle: "solid",
-  borderColor: "#000000",
-  boxShadow: "0px 5px 3px rgba(0, 0, 0, 0.1)",
+  boxShadow: theme.color.layoutBoxShadow,
   justifyContent: "space-between",
+  backgroundColor: theme.color.backgroundColor,
 }));
 
 const MenuWrapper = styled.div(({ theme }) => ({
@@ -57,7 +60,7 @@ const LinkNav = styled(NavLink)(({ theme }) => ({
   textDecoration: "none",
   fontSize: "20px",
   fontWeight: "800",
-  color: "#2a363b",
+  color: theme.color.mainTextColor,
   padding: "12px 8px 12px 8px",
 }));
 
@@ -70,6 +73,10 @@ const HistoryButton = styled.button(({ theme }) => ({
   border: "none",
   backgroundColor: "inherit",
   padding: "0",
+}));
+
+const RightBtnWrapper = styled.div(({ theme }) => ({
+  display: "flex",
 }));
 
 export default Navigation;

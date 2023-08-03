@@ -24,18 +24,20 @@ const ParcelData = () => {
 const Container = styled.div(({ theme }) => ({
   width: "700px",
   padding: "8px",
-  border: "1px solid black",
-  boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)",
+  border: theme.color.parcelBorderColor,
+  boxShadow: theme.color.parcelContainerShadow,
   borderRadius: "8px",
 }));
 
 const StatusText = styled.p(({ theme }) => ({
   fontSize: "18px",
+  color: theme.color.mainTextColor,
 }));
 
 const SenderTitle = styled.p(({ theme }) => ({
   fontSize: "18px",
   fontWeight: "800",
+  color: theme.color.mainTextColor,
 }));
 
 const SenderText = styled.span(({ theme }) => ({

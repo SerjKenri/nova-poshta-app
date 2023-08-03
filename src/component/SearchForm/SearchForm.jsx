@@ -10,7 +10,7 @@ const SearchForm = () => {
   return (
     <Container>
       <InputWrapper>
-        <Input /> <Button>BUTTON</Button>
+        <Input /> <Button>Отримати статус</Button>
       </InputWrapper>
       <DataWrapper>
         <ParcelData />
@@ -21,6 +21,7 @@ const SearchForm = () => {
 
 const InputWrapper = styled.div(({ theme }) => ({
   display: "flex",
+  marginTop: "16px",
 }));
 
 const DataWrapper = styled.div(({ theme }) => ({

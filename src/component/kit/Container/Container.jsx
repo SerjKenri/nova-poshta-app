@@ -9,8 +9,14 @@ const Wrapper = styled.div(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "start",
   marginTop: "16px",
+  position: "fixed",
+  top: "72px",
+  left: "0",
+  right: "0",
+  bottom: "0",
+  backgroundColor: theme.color.backgroundColor,
 }));
 
 export default Container;

@@ -22,6 +22,7 @@ const DepartmentForm = () => {
 
 const InputWrapper = styled.div(({ theme }) => ({
   display: "flex",
+  marginTop: "16px",
 }));
 
 const BtnWrapper = styled.div(({ theme }) => ({
