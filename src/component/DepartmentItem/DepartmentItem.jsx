@@ -20,6 +20,9 @@ const Item = styled.li(({ theme }) => ({
   borderRadius: "1px",
   borderStyle: "solid",
   boxShadow: theme.color.departmentItemShadow,
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    maxWidth: "340px",
+  },
 }));
 
 const Title = styled.h1(({ theme }) => ({

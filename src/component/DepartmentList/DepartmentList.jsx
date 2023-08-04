@@ -38,7 +38,9 @@ const List = styled.ul(({ theme }) => ({
   listStyle: "none",
   marginLeft: "auto",
   marginRight: "auto",
-  alignItems: "center",
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    maxWidth: "340px",
+  },
 }));
 
 export default DepartmentList;

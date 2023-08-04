@@ -21,7 +21,12 @@ const SearchForm = () => {
 
 const InputWrapper = styled.div(({ theme }) => ({
   display: "flex",
+  justifyContent: "center",
   marginTop: "16px",
+  [theme.media.down(`${theme.breakpoints.m}px`)]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
 }));
 
 const DataWrapper = styled.div(({ theme }) => ({

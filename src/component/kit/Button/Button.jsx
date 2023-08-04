@@ -33,6 +33,10 @@ const StyledBtn = styled.button(({ theme }) => ({
     color: "#db1212",
     boxShadow: "0 0 10px 0 #db1212 inset, 0 0 10px 4px #db1212",
   },
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    fontSize: "0.6em",
+    width: "200px",
+  },
 }));
 
 export default Button;

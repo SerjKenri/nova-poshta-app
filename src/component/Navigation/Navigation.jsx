@@ -31,9 +31,7 @@ const Navigation = () => {
       <RightBtnWrapper>
         <ThemeToggler />
         <HistoryButton onClick={toggleSideBar}>
-          <HiArchive
-            style={{ width: "30px", height: "30px", fill: "#ff0000" }}
-          />
+          <ArchiveIcon />
         </HistoryButton>
       </RightBtnWrapper>
       {isSideOpen && <Sidebar setClose={toggleSideBar} />}
@@ -51,8 +49,19 @@ const Container = styled.div(({ theme }) => ({
   backgroundColor: theme.color.backgroundColor,
 }));
 
+const ArchiveIcon = styled(HiArchive)(({ theme }) => ({
+  width: "30px",
+  height: "30px",
+  fill: "#ff0000",
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    width: "24px",
+    height: "24px",
+  },
+}));
+
 const MenuWrapper = styled.div(({ theme }) => ({
   display: "flex",
+  alignItems: "center",
 }));
 
 const LinkNav = styled(NavLink)(({ theme }) => ({
@@ -62,11 +71,19 @@ const LinkNav = styled(NavLink)(({ theme }) => ({
   fontWeight: "800",
   color: theme.color.mainTextColor,
   padding: "12px 8px 12px 8px",
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    fontSize: "16px",
+    padding: "10px 6px 10px 6px",
+  },
 }));
 
 const Logo = styled.img(({ theme }) => ({
   width: "50px",
   marginRight: "20px",
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    width: "36px",
+    height: "36px",
+  },
 }));
 
 const HistoryButton = styled.button(({ theme }) => ({

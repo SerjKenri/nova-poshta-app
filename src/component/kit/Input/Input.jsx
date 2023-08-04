@@ -19,6 +19,12 @@ const InputStyled = styled.input(({ theme }) => ({
   fontSize: "16px",
   fontWeight: "600",
   color: theme.color.mainTextColor,
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    fontSize: "14px",
+    width: "300px",
+    padding: "12px",
+    height: "40px",
+  },
 }));
 
 export default Input;

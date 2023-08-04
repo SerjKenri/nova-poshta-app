@@ -22,8 +22,10 @@ const ParcelData = () => {
 };
 
 const Container = styled.div(({ theme }) => ({
-  width: "700px",
-  padding: "8px",
+  maxWidth: "1200px",
+  width: "100%",
+  margin: "0 auto",
+  padding: "20px",
   border: theme.color.parcelBorderColor,
   boxShadow: theme.color.parcelContainerShadow,
   borderRadius: "8px",
