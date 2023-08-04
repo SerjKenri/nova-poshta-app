@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const DepartmentItem = ({ id, city, description, time }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Item key={id}>
         <Title>{city}</Title>
         <Text>
-          Descriptin: <Description>{description}</Description>
+          {t("Address")}: <Description>{description}</Description>
         </Text>
         <Text>
-          Time of work: <Description>{time}</Description>
+          {t("WorkTime")}: <Description>{time}</Description>
         </Text>
       </Item>
     </>

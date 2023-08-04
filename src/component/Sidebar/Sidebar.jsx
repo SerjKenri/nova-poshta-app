@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = ({ setClose }) => {
   const sidebarRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -21,7 +23,7 @@ const Sidebar = ({ setClose }) => {
       <Container ref={sidebarRef}>
         <ContentWrapper>
           <TitleWrapper>
-            <Title>Історія</Title>
+            <Title>{t("History")}</Title>
           </TitleWrapper>
           <HistoryList>
             <Item>0000000</Item>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Container from "../kit/Container/Container";
 import Button from "../kit/Button/Button";
@@ -7,12 +8,14 @@ import Input from "../kit/Input/Input";
 import DepartmentList from "../DepartmentList/DepartmentList";
 
 const DepartmentForm = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <InputWrapper>
         <Input />
         <BtnWrapper>
-          <Button>Шукати відділення</Button>
+          <Button>{t("BtnOffice")}</Button>
         </BtnWrapper>
       </InputWrapper>
       <DepartmentList />

@@ -2,11 +2,12 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
       <main>
+        {children}
         <Outlet />
       </main>
     </>

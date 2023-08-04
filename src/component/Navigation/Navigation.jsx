@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+
 import logo from "../../assets/novaPoshtaLogo.png";
 import Sidebar from "../Sidebar/Sidebar";
 import { HiArchive } from "react-icons/hi";
 import ThemeToggler from "../ThemeToggler/ThemeToggler";
-
-const screen = [
-  { name: "Home", link: "/" },
-  { name: "Offices", link: "/departament" },
-];
+import ToggleLanguage from "../ToggleLanguage/ToggleLanguage";
 
 const Navigation = () => {
   const [isSideOpen, setIsSideOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleSideBar = () => {
     setIsSideOpen(!isSideOpen);
@@ -22,13 +21,11 @@ const Navigation = () => {
     <Container>
       <MenuWrapper>
         <Logo src={logo} />
-        {screen.map(({ name, link }) => (
-          <LinkNav key={name} to={link}>
-            {name}
-          </LinkNav>
-        ))}
+        <LinkNav to="/">{t("Home")}</LinkNav>
+        <LinkNav to="/departament">{t("Offices")}</LinkNav>
       </MenuWrapper>
       <RightBtnWrapper>
+        <ToggleLanguage />
         <ThemeToggler />
         <HistoryButton onClick={toggleSideBar}>
           <ArchiveIcon />

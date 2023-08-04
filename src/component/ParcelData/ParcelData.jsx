@@ -1,21 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-
-const data = {
-  status: "Відправлення отримано",
-  senderS: "Відділення №12 (до 30 кг): вул. Університетська, 2ф/2, прим. 98",
-  senderO: "Відділення №5 (до 30 кг на одне місце): вул. Набережна, 2В",
-};
+import { useTranslation } from "react-i18next";
 
 const ParcelData = () => {
+  const { t } = useTranslation();
   return (
     <Container>
-      <StatusText>Статус доставки: </StatusText>
+      <StatusText>{t("Status")}: </StatusText>
       <SenderTitle>
-        Відправлено: <SenderText></SenderText>
+        {t("Sender")}: <SenderText></SenderText>
       </SenderTitle>
       <SenderTitle>
-        Отримано: <SenderText></SenderText>
+        {t("Recipient")}: <SenderText></SenderText>
       </SenderTitle>
     </Container>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Button from "../kit/Button/Button";
 import Input from "../kit/Input/Input";
@@ -7,10 +8,11 @@ import Container from "../kit/Container/Container";
 import ParcelData from "../ParcelData/ParcelData";
 
 const SearchForm = () => {
+  const { t } = useTranslation();
   return (
     <Container>
       <InputWrapper>
-        <Input /> <Button>Отримати статус</Button>
+        <Input /> <Button>{t("BtnTtn")}</Button>
       </InputWrapper>
       <DataWrapper>
         <ParcelData />
