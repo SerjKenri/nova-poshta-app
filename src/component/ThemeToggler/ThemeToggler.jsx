@@ -23,7 +23,7 @@ const ThemeToggler = () => {
 
   return (
     <>
-      <PinkSwitch defaultChecked size={toggleSize} onClick={toggleTheme} />
+      <PinkSwitch size={toggleSize} onClick={toggleTheme} />
     </>
   );
 };

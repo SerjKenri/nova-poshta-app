@@ -14,6 +14,8 @@ const colorsLight = {
   siderTitleWrapperShadow: "1px solid #000000",
   parcelBorderColor: "1px solid #000000",
   iconColor: "#d40606",
+  historyItemBorder: "1px solid #000000",
+  deleteTtnIcon: "#000000",
 };
 
 const colorsDark = {
@@ -31,6 +33,8 @@ const colorsDark = {
   siderTitleWrapperShadow: "1px solid #fafafaf2",
   parcelBorderColor: "1px solid #FFFFFF",
   iconColor: "#d40606",
+  historyItemBorder: "1px solid #FFFFFF",
+  deleteTtnIcon: "#FFFFFF",
 };
 
 export { colorsLight, colorsDark };

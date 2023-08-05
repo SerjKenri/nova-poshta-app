@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ children }) => {
-  return <StyledBtn type="submit">{children}</StyledBtn>;
+const Button = ({ children, onClick, disabled }) => {
+  return (
+    <StyledBtn type="submit" onClick={onClick} disabled={disabled}>
+      {children}
+    </StyledBtn>
+  );
 };
 
 const StyledBtn = styled.button(({ theme }) => ({

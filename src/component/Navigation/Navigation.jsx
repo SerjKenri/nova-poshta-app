@@ -2,16 +2,21 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import logo from "../../assets/novaPoshtaLogo.png";
 import Sidebar from "../Sidebar/Sidebar";
 import { HiArchive } from "react-icons/hi";
 import ThemeToggler from "../ThemeToggler/ThemeToggler";
 import ToggleLanguage from "../ToggleLanguage/ToggleLanguage";
+import { getNumTTN } from "../../redux/parcel/parcel-selector";
 
 const Navigation = () => {
   const [isSideOpen, setIsSideOpen] = useState(false);
   const { t } = useTranslation();
+  const numTtn = useSelector(getNumTTN);
+
+  const numLength = numTtn?.length;
 
   const toggleSideBar = () => {
     setIsSideOpen(!isSideOpen);
@@ -21,14 +26,17 @@ const Navigation = () => {
     <Container>
       <MenuWrapper>
         <Logo src={logo} />
-        <LinkNav to="/">{t("Home")}</LinkNav>
-        <LinkNav to="/departament">{t("Offices")}</LinkNav>
+        <NavWrapper>
+          <LinkNav to="/">{t("Home")}</LinkNav>
+          <LinkNav to="/departament">{t("Offices")}</LinkNav>
+        </NavWrapper>
       </MenuWrapper>
       <RightBtnWrapper>
         <ToggleLanguage />
         <ThemeToggler />
         <HistoryButton onClick={toggleSideBar}>
           <ArchiveIcon />
+          <NumbersTtn>{numLength}</NumbersTtn>
         </HistoryButton>
       </RightBtnWrapper>
       {isSideOpen && <Sidebar setClose={toggleSideBar} />}
@@ -44,6 +52,21 @@ const Container = styled.div(({ theme }) => ({
   boxShadow: theme.color.layoutBoxShadow,
   justifyContent: "space-between",
   backgroundColor: theme.color.backgroundColor,
+}));
+
+const NavWrapper = styled.div(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  [theme.media.down(`${theme.breakpoints.m}px`)]: {
+    flexDirection: "column",
+  },
+}));
+
+const NumbersTtn = styled.span(({ theme }) => ({
+  position: "absolute",
+  fontWeight: "800",
+  color: theme.color.mainTextColor,
 }));
 
 const ArchiveIcon = styled(HiArchive)(({ theme }) => ({
@@ -62,15 +85,20 @@ const MenuWrapper = styled.div(({ theme }) => ({
 }));
 
 const LinkNav = styled(NavLink)(({ theme }) => ({
+  cursor: "pointer",
   display: "inline-block",
   textDecoration: "none",
   fontSize: "20px",
   fontWeight: "800",
   color: theme.color.mainTextColor,
   padding: "12px 8px 12px 8px",
-  [theme.media.down(`${theme.breakpoints.s}px`)]: {
-    fontSize: "16px",
-    padding: "10px 6px 10px 6px",
+  transition: "all 150ms ease-in-out",
+  "&:hover, &:focus, &:active": {
+    color: "#db1212",
+  },
+  [theme.media.down(`${theme.breakpoints.m}px`)]: {
+    fontSize: "14px",
+    padding: "0",
   },
 }));
 
@@ -87,10 +115,13 @@ const HistoryButton = styled.button(({ theme }) => ({
   border: "none",
   backgroundColor: "inherit",
   padding: "0",
+  cursor: "pointer",
 }));
 
 const RightBtnWrapper = styled.div(({ theme }) => ({
   display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
 
 export default Navigation;

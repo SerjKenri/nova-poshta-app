@@ -7,16 +7,26 @@ import "./i18n";
 
 import { BrowserRouter } from "react-router-dom";
 import { ManageThemeProvider } from "./core/theme/ThemeContext";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./redux/store";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter basename="nova-poshta-app">
-      <ManageThemeProvider>
-        <App />
-      </ManageThemeProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter basename="nova-poshta-app">
+        <ManageThemeProvider>
+          <App />
+          <ToastContainer />
+        </ManageThemeProvider>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
+  // </React.StrictMode>
 );
 
 reportWebVitals();

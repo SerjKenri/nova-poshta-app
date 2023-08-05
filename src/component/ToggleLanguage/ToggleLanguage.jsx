@@ -30,46 +30,35 @@ const ToggleLanguage = () => {
 
 export default ToggleLanguage;
 
-const StyledButton = styled.button`
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #e74c3c;
-  border-radius: 0.6em;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-size: 0.6rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 3px;
-  padding: 1em 1em;
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  border-color: #bd0000;
-  color: ${(props) => props.theme.color.mainTextColor};
-  box-shadow: 0 0 15px 15px
-      ${(props) => props.theme.color.accentBackgroundColor} inset,
-    0 0 0 0 #d10000;
-  -webkit-transition: all 150ms ease-in-out;
-  transition: all 150ms ease-in-out;
-  font-family: Georgia;
-  :hover,
-  :focus,
-  &.active {
-    color: ${(props) => props.theme.color.iconColor};
-    box-shadow: 0 0 5px 0 #d90320 inset, 0 0 5px 2px #c80518;
-  }
-`;
+const StyledButton = styled.button(({ theme }) => ({
+  boxSizing: "border-box",
+  appearance: "none",
+  backgroundColor: "transparent",
+  border: "2px solid #e74c3c",
+  borderRadius: "0.6em",
+  cursor: "pointer",
+  display: "-ms-flexbox",
+  alignSelf: "center",
+  fontSize: "0.6rem",
+  fontWeight: "700",
+  lineHeight: "1",
+  margin: "3px",
+  padding: "1em 1em",
+  textDecoration: "none",
+  textAlign: "center",
+  textTransform: "uppercase",
+  borderColor: "#bd0000",
+  color: theme.color.mainTextColor,
+  boxShadow: "0 0 15px 15px #da0404 inset, 0 0 0 0 #d10000",
+  transition: "all 150ms ease-in-out",
+  "&:hover, &:focus, &:active": {
+    color: theme.color.iconColor,
+    boxShadow: "0 0 5px 0 #d90320 inset, 0 0 5px 2px #c80518",
+  },
+  [theme.media.down(`${theme.breakpoints.s}px`)]: {
+    fontSize: "0.5rem",
+  },
+}));
 
 const Wrapper = styled.ul`
   display: flex;

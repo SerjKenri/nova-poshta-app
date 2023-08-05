@@ -1,18 +1,25 @@
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-const DepartmentItem = ({ id, city, description, time }) => {
+const DepartmentItem = ({ item }) => {
   const { t } = useTranslation();
 
   return (
     <>
-      <Item key={id}>
-        <Title>{city}</Title>
+      <Item>
+        <Title>{item.CityDescription}</Title>
         <Text>
-          {t("Address")}: <Description>{description}</Description>
+          {t("Address")}: <Description>{item.Description}</Description>
         </Text>
         <Text>
-          {t("WorkTime")}: <Description>{time}</Description>
+          {t("WorkTime")}:{" "}
+          <Description>
+            {t("Sunday")}: {item.Delivery.Sunday}/ {t("Monday")}:
+            {item.Delivery.Monday}/ {t("Tuesday")}: {item.Delivery.Tuesday}/{" "}
+            {t("Wednesday")}:{item.Delivery.Wednesday}/ {t("Thursday")}:{" "}
+            {item.Delivery.Thursday}/ {t("Friday")}:{item.Delivery.Friday}/{" "}
+            {t("Saturday")}: {item.Delivery.Saturday}
+          </Description>
         </Text>
       </Item>
     </>
@@ -22,6 +29,7 @@ const DepartmentItem = ({ id, city, description, time }) => {
 const Item = styled.li(({ theme }) => ({
   borderRadius: "1px",
   borderStyle: "solid",
+  padding: "6px",
   boxShadow: theme.color.departmentItemShadow,
   [theme.media.down(`${theme.breakpoints.s}px`)]: {
     maxWidth: "340px",

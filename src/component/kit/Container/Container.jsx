@@ -16,6 +16,7 @@ const Wrapper = styled.div(({ theme }) => ({
   right: "0",
   bottom: "0",
   backgroundColor: theme.color.backgroundColor,
+  overflow: "scroll",
 }));
 
 export default Container;
