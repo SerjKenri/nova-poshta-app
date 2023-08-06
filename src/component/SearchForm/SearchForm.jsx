@@ -22,6 +22,7 @@ const SearchForm = () => {
   const handleSubmit = () => {
     const regex = /^\d{14}$/;
     if (ttn === "") {
+      toast.error(t("TtnClearForm"));
       return;
     }
 

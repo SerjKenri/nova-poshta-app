@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
 
 import Button from "../kit/Button/Button";
 import DepartmentItem from "../DepartmentItem/DepartmentItem";
@@ -18,7 +17,6 @@ const DepartmentList = () => {
   const depList = useSelector(getPaginOfficeList);
   const numPage = useSelector(getPageNum);
   const isLoading = useSelector(isLoadingPage);
-  const { t } = useTranslation();
 
   const handleNextPage = () => {
     dispatch(plusPage(1));

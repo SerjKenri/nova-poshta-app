@@ -19,5 +19,6 @@
   "TtnCheck": "The field must contain 14 characters that include only numbers",
   "CityCheck": "Please enter a city to search",
   "DepListClear": "Enter a city to search for post offices",
-  "SiderStoryClear": "There is no story yet"
+  "SiderStoryClear": "There is no story yet",
+  "TtnClearForm": "Enter the postal item number to search"
 }
